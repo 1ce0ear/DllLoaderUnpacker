@@ -27,4 +27,4 @@ Example
 ---------------------
 
 Dll loader unpacker can unpack Vawtrak. 
-
+Unpacked dll info: https://www.virustotal.com/#/file/0e34064a9e44c097392b8f58361821801fbc73ae45decbdf80a087359c25fd6e/detection
