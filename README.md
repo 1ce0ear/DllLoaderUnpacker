@@ -1,25 +1,26 @@
-DLL Loader Unpacker
+[WIP] DLL Loader Unpacker
 ===============================================
 
 Introduction
 ---------------------
-DLL Loader Unpacker is a Windows malware reversing tool to unpack the DLL loader malware described below.
+DLL Loader Unpacker is a Windows malware reversing tool to unpack the DLL loader malware in runtime.
 
-```mermaid
-graph LR
+A typical DLL loader malware behaves like this:
 
-A[DLL loader malware] --> B(Obfuscation)
-A --> C(Decryption)
-B --> D[Execute new DLL image]
-C --> D
-```
+1. Allocate lots of executable memory.
+2. Utilize various decryption & obfuscation techniques (for sure, some packers have the capability to detect debugger).
+3. Execute the new DLL image.
+
+DLL loader is a prevalent malware technique nowadays. To ease the life of malware reverse engineers, we develop this tool.
+
+Special thanks to malware researcher ea3d for advising the project and providing testing samples.
 
  Getting Started
 ---------------------
 
 Compile DllInjector.exe & DllLoaderUnpacker.dll by Visual Studio 2017 with configuration Debug | x86.
 
-Run the following command on Windows XP. (Windows 7 support is WIP)
+Run the following command on Windows XP if you have a dll loader malware. (Windows 7 support is WIP)
 
 ```
 DllInjector.exe -d DllLoaderUnpacker.dll -e 2017-02-06-Terdot.A-Zloader-from-Hancitor-malspam.exe 
@@ -67,3 +68,4 @@ In Windows XP x86 SP3 (1G, 2 cores), we test our tool with 17 DLL loader malware
 
 E.g. Unpacked dll info for Vawtrak:
 https://www.virustotal.com/#/file/0e34064a9e44c097392b8f58361821801fbc73ae45decbdf80a087359c25fd6e/detection
+
